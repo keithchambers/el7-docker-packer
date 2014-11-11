@@ -22,6 +22,7 @@
                         "sudo yum install -y python-docker-py",
                         "sudo yum upgrade -y && sudo yum clean all",
                         "sudo systemctl enable docker",
+                        "sudo usermod -a -G docker centos",
                         "sudo reboot",
                         "sleep 30",
                         "sudo rm -f /etc/udev/rules.d/*-persistent-net.rules",
