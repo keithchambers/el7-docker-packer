@@ -8,7 +8,7 @@
         "type":         "openstack",
         "ssh_username": "centos",
         "source_image": "{{user `source_image`}}",
-        "image_name":   "CentOS-7-x86_64-Docker-{{`version`}}",
+        "image_name":   "CentOS-7-x86_64-Docker-{{user `version`}}",
         "flavor":       "{{user `flavor`}}"
     }],
     "provisioners": [{
