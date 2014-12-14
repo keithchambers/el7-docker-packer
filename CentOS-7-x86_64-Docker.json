@@ -1,13 +1,14 @@
 {
     "variables": {
         "source_image": "",
+        "version":      "",
         "flavor":       ""
     },
     "builders": [{
         "type":         "openstack",
-        "image_name":   "CentOS-7-x86_64-Docker-{{timestamp}}",
         "ssh_username": "centos",
         "source_image": "{{user `source_image`}}",
+        "image_name":   "CentOS-7-x86_64-Docker-{{`version`}}",
         "flavor":       "{{user `flavor`}}"
     }],
     "provisioners": [{
