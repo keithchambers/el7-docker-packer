@@ -27,6 +27,6 @@
                         "sudo cat /dev/null > /etc/resolv.conf && sudo cat /dev/null > /etc/hostname",
                         "sudo rm /root/.ssh/authorized_keys && sudo rm /home/centos/.ssh/authorized_keys",
                         "sudo rm -rf /tmp/* && sudo find /var/log -type f -delete",
-                        "cat /dev/null > /home/centos/.bash_history" ]
+                        "cat /dev/null > /home/centos/.bash_history && history -c && exit"]
     }]
 }
