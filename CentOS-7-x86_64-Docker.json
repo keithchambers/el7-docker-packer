@@ -1,17 +1,14 @@
 {
     "variables": {
-        "version":      "YYYYMMDD",
-        "source_image": "5b89941f-c8b5-4dcb-ade5-bec2fe4de893",
-        "flavor":       "c33143d9-ce0a-472c-944b-3e39476970d3",
-        "networks":     "2d84eaa4-8b81-4dc8-9897-dd8ef4719f8b"
+        "source_image": "",
+        "flavor":       ""
     },
     "builders": [{
         "type":         "openstack",
-        "image_name":   "CentOS-7-x86_64-Docker-{{user `version`}}",
+        "image_name":   "CentOS-7-x86_64-Docker-{{timestamp}}",
+        "ssh_username": "centos",
         "source_image": "{{user `source_image`}}",
-        "flavor":       "{{user `flavor`}}",
-        "networks":     "{{user `networks`}}",
-        "ssh_username": "centos"
+        "flavor":       "{{user `flavor`}}"
     }],
     "provisioners": [{
         "type":         "shell",
@@ -30,6 +27,6 @@
                         "sudo cat /dev/null > /etc/resolv.conf && sudo cat /dev/null > /etc/hostname",
                         "sudo rm /root/.ssh/authorized_keys && sudo rm /home/centos/.ssh/authorized_keys",
                         "sudo rm -rf /tmp/* && sudo find /var/log -type f -delete",
-                        "cat /dev/null > /home/centos/.bash_history && dd if=/dev/zero of=/ZERO bs=1M && rm -rf /ZERO && history -c && exit"]
+                        "cat /dev/null > /home/centos/.bash_history" ]
     }]
 }
