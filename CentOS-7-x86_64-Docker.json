@@ -1,7 +1,7 @@
 {
     "variables": {
         "source_image": "",
-        "version":      "",
+        "image_name":   "",
         "flavor":       ""
     },
     "builders": [{
