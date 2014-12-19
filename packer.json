@@ -22,7 +22,7 @@
                         "sudo reboot",
                         "sleep 30",
                         "# install and configure docker",
-                        "sudo yum install -y http://cbs.centos.org/kojifiles/packages/docker/1.4.0/1.el7.centos/x86_64/docker-1.4.0-1.el7.centos.x86_64.rpm",
+                        "sudo yum install -y http://cbs.centos.org/kojifiles/packages/docker/1.4.1/2.el7/x86_64/docker-1.4.1-2.el7.x86_64.rpm",
                         "sudo yum install -y epel-release",
                         "sudo yum install -y python-docker-py",
                         "sudo systemctl enable docker",
