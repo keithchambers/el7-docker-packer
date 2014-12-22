@@ -12,31 +12,15 @@
         "flavor":       "{{user `flavor`}}"
     }],
     "provisioners": [{
-        "type":         "shell",
-        "inline": [     "# set timezone to utc",
-                        "sudo ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime",
-                        "# upgrade all packages",
-                        "sudo yum upgrade -y centos-release",
-                        "sudo sed -i 's/enabled=0/enable=1/g' /etc/yum.repos.d/CentOS-fasttrack.repo",
-                        "sudo yum upgrade -y",
-                        "sudo reboot",
-                        "sleep 30",
-                        "# install and configure docker",
-                        "sudo yum install -y http://cbs.centos.org/kojifiles/packages/docker/1.4.1/2.el7/x86_64/docker-1.4.1-2.el7.x86_64.rpm",
-                        "sudo yum install -y epel-release",
-                        "sudo yum install -y python-docker-py",
-                        "sudo systemctl enable docker",
-                        "sudo usermod -a -G docker centos",
-                        "# clean image",
-                        "sudo rm -f /etc/udev/rules.d/*-persistent-net.rules",
-                        "sudo sed -i '/UUID/d' /etc/sysconfig/network-scripts/ifcfg-e*",
-                        "sudo sed -i '/HWADDR/d' /etc/sysconfig/network-scripts/ifcfg-e*",
-                        "sudo cat /dev/null > /etc/resolv.conf",
-                        "sudo cat /dev/null > /etc/hostname",
-                        "sudo rm /root/.ssh/authorized_keys",
-                        "sudo rm /home/centos/.ssh/authorized_keys",
-                        "sudo rm -rf /tmp/*",
-                        "sudo find /var/log -type f -delete",
-                        "history -c"]
+        "type": "shell",
+        "inline": [     
+            "sudo yum upgrade -y",
+            "sudo yum install -y http://cbs.centos.org/kojifiles/packages/docker/1.4.1/2.el7/x86_64/docker-1.4.1-2.el7.x86_64.rpm",
+            "sudo yum install -y http://cbs.centos.org/kojifiles/packages/docker/1.4.1/2.el7/x86_64/docker-logrotate-1.4.1-2.el7.x86_64.rpm",
+            "sudo yum install -y epel-release",
+            "sudo yum install -y python-docker-py",
+            "sudo systemctl enable docker",
+            "sudo usermod -a -G docker centos",
+            "sudo poweroff"]
     }]
 }
